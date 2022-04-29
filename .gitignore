@@ -1,0 +1,5 @@
+.terraform*
+*.tfstate*
+*.tfplan
+shell/variables.sh
+.saKey/
