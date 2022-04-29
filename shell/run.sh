@@ -26,8 +26,6 @@ echo "Done!"
 gcloud config set compute/region ${REGION}
 gcloud config set compute/zone ${ZONE}
 
-# configurer les crédential de git
-# git config --global credential.https://source.developers.google.com.helper gcloud.sh
 
 echo "Association d'un compte de facturation..."
 # Activation du compte de facturation
