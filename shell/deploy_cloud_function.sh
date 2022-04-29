@@ -9,6 +9,14 @@ ROOT_PATH="$DIR/.."
 
 SOURCE_DIR="${ROOT_PATH}/src/flat_file_ingestor"
 
+echo "LISTE DES DOSSIERS A LA RACINE..."
+ls ${ROOT_PATH}
+echo "Done"
+
+echo "LISTE DES ELEMENTS DANS workspace"
+ls /workspace
+echo "Done"
+
 source "${ROOT_PATH}/shell/variables.sh"
 
 echo "Deployement de la cloud function..."

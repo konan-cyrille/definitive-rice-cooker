@@ -93,5 +93,6 @@ steps:
 
 - id: 'deploy cloud function'
   name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
-  args: ["./shell/deploy_cloud_function.sh"]
+  entrypoint: 'bash'
+  args: ["shell/deploy_cloud_function.sh"]
   waitFor: ["-"]
