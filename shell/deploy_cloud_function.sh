@@ -17,7 +17,12 @@ echo "LISTE DES ELEMENTS DANS workspace"
 ls /workspace
 echo "Done"
 
-source "${ROOT_PATH}/shell/variables.sh"
+source "shell/variables.sh"
+
+echo "PROJECT_ID=${PROJECT_ID}"
+echo "FUNCTION_NAME=${FUNCTION_NAME}"
+echo "BUCKET_TO_WATCH=${BUCKET_TO_WATCH}"
+echo "BUCKET_NAME_HANDLED=${BUCKET_NAME_HANDLED}"
 
 echo "Deployement de la cloud function..."
 gcloud services enable cloudfunctions.googleapis.com
