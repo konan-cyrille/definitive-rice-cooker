@@ -2,19 +2,20 @@ echo "*********************************"
 echo "Initialisation des variables"
 echo "*********************************"
 # Remplace les valeurs par tes propres valeurs.
-export PROJECT_ID="cicd-gcp-tools-348307"
-export REGION="europe-west1"
-export ZONE="europe-west1-b"
+export PROJECT_ID="PROJECT_ID"
+export REGION="REGION_NAME"
+export ZONE="ZONE_NAME"
 export BILLING_ACCOUNT="ID_COMPTE_DE_FACTURATION"
 
+CLOUD_FUNC_NAME=CLOUD_FUNCTION_NAME
+export SA_NAME=SERVICE_ACCOUNT_NAME
+export CLOUD_FUNCTION_ENTRYPOINT=FUNCTION_ENTRYPOINT
+
 IS_DEVELOPER=true
-export SA_NAME=sa-for-run-jobs
+
 export IAM_ACCOUNT=${SA_NAME}@${PROJECT_ID}.iam.gserviceaccount.com
 export SA_CREDS=${SA_NAME}.json
-
-CLOUD_FUNCTION_NAME=func-pdl
-export FUNCTION_NAME=$CLOUD_FUNCTION_NAME
-export CLOUD_FUNCTION_ENTRYPOINT=process
+export FUNCTION_NAME=$CLOUD_FUNC_NAME
 export BUCKET_TO_WATCH=bkt-${PROJECT_ID}-in
 export BUCKET_NAME_IN=bkt-${PROJECT_ID}-in
 export BUCKET_NAME_HANDLED=bkt-${PROJECT_ID}-handled

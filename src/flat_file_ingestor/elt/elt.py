@@ -1,21 +1,15 @@
 import pandas as pd
-# import logging
 import traceback
 import datetime as dt
 import hashlib
 import os
-
 from google.cloud import bigquery
 from google.cloud import storage
-
 
 
 PROJECT_ID = os.getenv('PROJECT_ID')
 BUCKET_NAME_IN  = os.getenv('BUCKET_NAME_IN')
 BUCKET_NAME_HANDLED = os.getenv('BUCKET_NAME_HANDLED')
-
-
-# logging.basicConfig(level=logging.INFO, filename='../logApp/elt.log', format='%(asctime)s:%(levelname)s:%(message)s')
 
 
 def check_if_file_already_handled():
@@ -40,25 +34,6 @@ def hash_blob(blob_as_string):
     file_hash.update(blob_as_string)
     return file_hash.hexdigest()
 
-# def hash_file(file_path, block_size=None):
-#     """
-#     Cette fonction permet de hasher le contenu d'un fichier
-#     soit tout le contenu du fichier est hashé en une seule fois,
-#     soit le hashage se fait par petit bout
-#     arg:
-#         file_path (str): le chemin du fichier
-#         block_size (int): le nombre de bit à lire
-#     """
-#     # On crée un objet hash avec la librairie haslib, on peut utiliser d'autre algorithme de hashage autre que`.sha256()`
-#     file_hash = hashlib.sha256() 
-#     with open(file_path, 'rb') as f: # overture et lecture du fichier (binaire) dans un objet f
-#         content = f.read(block_size) #o n lit un morceau des binaires de l'objet f
-#         while len(content) > 0:
-#             file_hash.update(content)
-#             content = f.read(block_size)
-#     return file_hash.hexdigest()
-
-
 def make_metadata(gcs_client, file_path, status):
     """
     cette methode permet de générer des information, qui seront loguer dans une table
@@ -68,14 +43,11 @@ def make_metadata(gcs_client, file_path, status):
     """
     now = dt.datetime.now()
     loaded_datetime = now.strftime("%d %m %Y %H:%M:%S")
-    
     # lecture et hashage d'un objet blob
     d = read_blob_from_gcs(gcs_client, file_path=file_path, bucket_name=BUCKET_NAME_IN)
     h = hash_blob(d)
-    
     meta_data = {"file_path":[file_path], "file_hash":[h], "file_status":[status], "loaded_datetime":[loaded_datetime]}
     df_metadata = pd.DataFrame(meta_data)
-    # print(df_metadata.head())
     return df_metadata
 
 
@@ -93,7 +65,6 @@ def read_file(input_file_path):
             print(f"Done!")
             return df
     except Exception as e:
-        # print to sysout
         traceback.print_exc()
 
 
@@ -174,14 +145,5 @@ if __name__ == '__main__':
     bq_client = bigquery.Client()
     gcs_client = storage.Client()
     run("drugs.csv", gcs_client, bq_client)
-    # client = bigquery.Client()
-    # fileName_without_extension = 'drugs'
-    # lbq = load_to_bigquery(client, df, project_id=PROJECT_ID, dataset_name='raw', table_name=fileName_without_extension, write_mode='WRITE_TRUNCATE')
-    # print(lbq)
-    # d = read_blob_from_gcs(gcs_client, file_path="drugs.csv", bucket_name=BUCKET_NAME_IN)
-    # print(d)
-    # h = hash_blob(d)
-    # print(h)
     
-    pass
 

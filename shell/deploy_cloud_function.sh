@@ -9,15 +9,7 @@ ROOT_PATH="$DIR/.."
 
 SOURCE_DIR="${ROOT_PATH}/src/flat_file_ingestor"
 
-echo "LISTE DES DOSSIERS A LA RACINE..."
-ls ${ROOT_PATH}
-echo "Done"
-
-echo "LISTE DES ELEMENTS DANS /workspace/shell"
-ls /workspace/shell
-echo "Done"
-
-source "/workspace/shell/variables.sh"
+source "${ROOT_PATH}/shell/variables.sh"
 
 echo "PROJECT_ID=${PROJECT_ID}"
 echo "FUNCTION_NAME=${FUNCTION_NAME}"
