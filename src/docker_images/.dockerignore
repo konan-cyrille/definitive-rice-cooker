@@ -1,0 +1,8 @@
+Dockerfile
+README.md
+jobs/*.pyc
+jobs/*.pyo
+jobs/*.pyd
+jobs/__pycache__
+shell/
+conf/.env

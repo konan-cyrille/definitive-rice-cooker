@@ -5,7 +5,7 @@ echo "*********************************"
 export PROJECT_ID="cicd-gcp-tools-348307"
 export REGION="europe-west1"
 export ZONE="europe-west1-b"
-
+export BILLING_ACCOUNT="ID_COMPTE_DE_FACTURATION"
 
 IS_DEVELOPER=true
 export SA_NAME=sa-for-run-jobs

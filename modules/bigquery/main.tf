@@ -5,9 +5,6 @@ resource "google_bigquery_dataset" "dataset_raw" {
   friendly_name               = "raw"
   description                 = "le dataset de l'environnement de dev"
   location                    = var.region
-
-  # Attendre que toutes les api soit active
-  # depends_on = [google_project_service.service]
 }
 
 # creation d'un dataset
