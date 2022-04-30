@@ -1,7 +1,7 @@
 .terraform*
 *.tfstate*
 *.tfplan
-shell/variables.sh
+# shell/variables.sh
 .saKey/
 
 # Byte-compiled / optimized / DLL files

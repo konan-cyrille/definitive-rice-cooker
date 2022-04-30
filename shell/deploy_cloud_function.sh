@@ -13,11 +13,11 @@ echo "LISTE DES DOSSIERS A LA RACINE..."
 ls ${ROOT_PATH}
 echo "Done"
 
-echo "LISTE DES ELEMENTS DANS workspace"
-ls /workspace
+echo "LISTE DES ELEMENTS DANS /workspace/shell"
+ls /workspace/shell
 echo "Done"
 
-source "shell/variables.sh"
+source "/workspace/shell/variables.sh"
 
 echo "PROJECT_ID=${PROJECT_ID}"
 echo "FUNCTION_NAME=${FUNCTION_NAME}"
