@@ -6,8 +6,6 @@ from google.cloud import storage
 from queries import q_clinical_trials, q_drugs, q_pubmed
 
 BUCKET_OUTPUT_NAME = os.getenv('BUCKET_OUTPUT')
-
-print(f"LE NOM DU BUCKET DE SORTIE : {BUCKET_OUTPUT_NAME}")
     
 
 def drugs_referenced_in(df_d, df_j):

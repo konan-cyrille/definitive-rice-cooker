@@ -2,7 +2,7 @@
 # https://hub.docker.com/_/python
 FROM python:3.7-slim
 
-# Definir les variables d'environnement neccéssaire au fonctionnement du code
+# Definition du repertoire de travail
 ENV APP_HOME /is-drugs-in
 WORKDIR $APP_HOME
 # Copie du code local dans l'image du container.
